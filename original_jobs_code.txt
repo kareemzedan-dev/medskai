@@ -1,0 +1,821 @@
+Created At: 2026-07-04T10:11:12Z
+Completed At: 2026-07-04T10:11:13Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/controller/jobs_controller.dart`
+Total Lines: 132
+Total Bytes: 3553
+Showing lines 1 to 132
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:flutter/material.dart';
+2: import 'package:get/get.dart';
+3: import '../backend/models/job_model.dart';
+4: import '../backend/parse/jobs_parse.dart';
+5: 
+6: class JobsController extends GetxController implements GetxService {
+7:   final JobsParser parser;
+8: 
+9:   JobsController({required this.parser});
+10: 
+11:   List<JobModel> _jobs = [];
+12:   List<JobModel> get jobsList => _jobs;
+13: 
+14:   bool isLoading = true;
+15:   bool hasError = false;
+16:   String errorMessage = '';
+17:   int _page = 1;
+18:   bool hasMore = true;
+19:   bool isLoadingMore = false;
+20:   bool apiAvailable = true;
+21: 
+22:   @override
+23:   void onInit() {
+24:     super.onInit();
+25:     loadJobs();
+26:   }
+27: 
+28:   Future<void> loadJobs({bool forceRefresh = false}) async {
+29:     isLoading = true;
+30:     hasError = false;
+31:     apiAvailable = true;
+32:     _page = 1;
+33:     update();
+34: 
+35:     try {
+36:       final response = await parser.getJobs(forceRefresh: forceRefresh)
+37:           .timeout(const Duration(seconds: 15));
+38:       debugPrint('loadJobs: statusCode=${response.statusCode}, bodyType=${response.body.runtimeType}');
+39:       if (response.statusCode == 200) {
+40:         _jobs = [];
+41:         final List? jobsList = _extractList(response.body);
+42:         if (jobsList != null) {
+43:           for (var data in jobsList) {
+44:             if (data is Map<String, dynamic>) {
+45:               _jobs.add(JobModel.fromJson(data));
+46:             }
+47:           }
+48:         }
+49:    
+<truncated 614 bytes>
+ {
+69:     if (body is List) return body;
+70:     if (body is Map) {
+71:       // Handle wrapped responses: { "items": [...] }, { "data": [...] }, { "jobs": [...] }
+72:       for (final key in ['items', 'data', 'jobs', 'job_listings', 'results']) {
+73:         if (body[key] is List) return body[key];
+74:       }
+75:     }
+76:     return null;
+77:   }
+78: 
+79:   Future<void> loadMore() async {
+80:     if (isLoadingMore || !hasMore) return;
+81:     isLoadingMore = true;
+82:     update();
+83: 
+84:     try {
+85:       _page++;
+86:       final response = await parser.getJobs(page: _page);
+87:       if (response.statusCode == 200) {
+88:         final List? jobsList = _extractList(response.body);
+89:         if (jobsList != null) {
+90:           for (var data in jobsList) {
+91:             if (data is Map<String, dynamic>) {
+92:               _jobs.add(JobModel.fromJson(data));
+93:             }
+94:           }
+95:           hasMore = jobsList.length >= 10;
+96:         } else {
+97:           hasMore = false;
+98:         }
+99:       } else {
+100:         hasMore = false;
+101:       }
+102:     } catch (e) {
+103:       hasMore = false;
+104:       debugPrint('loadMore jobs error: $e');
+105:     }
+106: 
+107:     isLoadingMore = false;
+108:     update();
+109:   }
+110: 
+111:   Future<void> refresh() async {
+112:     await parser.clearCache();
+113:     await loadJobs(forceRefresh: true);
+114:   }
+115: 
+116:   Future<bool> createJob(Map<String, dynamic> data) async {
+117:     try {
+118:       final response = await parser.createJob(data);
+119:       if (response.statusCode == 200 || response.statusCode == 201) {
+120:         await refresh();
+121:         return true;
+122:       }
+123:       errorMessage = response.statusText ?? 'Failed to create job';
+124:       return false;
+125:     } catch (e) {
+126:       debugPrint('createJob error: $e');
+127:       errorMessage = 'Error creating job';
+128:       return false;
+129:     }
+130:   }
+131: }
+132: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-04T10:11:32Z
+Completed At: 2026-07-04T10:11:32Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/view/jobs.dart`
+Total Lines: 179
+Total Bytes: 6654
+Showing lines 1 to 179
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:easy_localization/easy_localization.dart';
+2: import 'package:flutter/material.dart';
+3: import 'package:flutter_app/app/util/theme.dart';
+4: import 'package:get/get.dart';
+5: import '../controller/jobs_controller.dart';
+6: import '../helper/router.dart';
+7: import '../../l10n/locale_keys.g.dart';
+8: 
+9: class JobsScreen extends StatefulWidget {
+10:   const JobsScreen({Key? key}) : super(key: key);
+11: 
+12:   @override
+13:   State<JobsScreen> createState() => _JobsScreenState();
+14: }
+15: 
+16: class _JobsScreenState extends State<JobsScreen> {
+17:   final ScrollController _scrollController = ScrollController();
+18: 
+19:   @override
+20:   void initState() {
+21:     super.initState();
+22:     _scrollController.addListener(() {
+23:       if (_scrollController.position.pixels ==
+24:           _scrollController.position.maxScrollExtent) {
+25:         Get.find<JobsController>().loadMore();
+26:       }
+27:     });
+28:   }
+29: 
+30:   @override
+31:   void dispose() {
+32:     _scrollController.dispose();
+33:     super.dispose();
+34:   }
+35: 
+36:   @override
+37:   Widget build(BuildContext context) {
+38:     final colors = context.kaiColors;
+39:     return Scaffold(
+40:       appBar: AppBar(
+41:         title: Text(tr(LocaleKeys.jobs_title)),
+42:         backgroundColor: colors.background,
+43:         foregroundColor: colors.textPrimary,
+44:       ),
+45:       backgroundColor: colors.background,
+46:       body: GetBuilder<JobsController>(
+47:         builder: (controller) {
+48:           if (controller.isLoadi
+<truncated 3933 bytes>
+        Row(
+133:                           children: [
+134:                             Icon(Icons.location_on, size: 16, color: colors.textSecondary),
+135:                             const SizedBox(width: 4),
+136:                             Expanded(
+137:                               child: Text(
+138:                                 job.location ?? 'Remote',
+139:                                 style: TextStyle(color: colors.textSecondary),
+140:                               ),
+141:                             ),
+142:                           ],
+143:                         ),
+144:                         const SizedBox(height: 12),
+145:                         if (job.plainTextExcerpt.isNotEmpty)
+146:                           Text(
+147:                             job.plainTextExcerpt,
+148:                             style: TextStyle(color: colors.textSecondary, height: 1.4),
+149:                             maxLines: 2,
+150:                             overflow: TextOverflow.ellipsis,
+151:                           ),
+152:                         const SizedBox(height: 12),
+153:                         Align(
+154:                           alignment: Alignment.bottomRight,
+155:                           child: Text(
+156:                             job.formattedDate,
+157:                             style: TextStyle(color: colors.textSecondary, fontSize: 12),
+158:                           ),
+159:                         )
+160:                       ],
+161:                     ),
+162:                   ),
+163:                 );
+164:               },
+165:             ),
+166:           );
+167:         },
+168:       ),
+169:       floatingActionButton: FloatingActionButton(
+170:         onPressed: () {
+171:           Get.toNamed(AppRouter.addJob);
+172:         },
+173:         backgroundColor: MedsKaiColors.primary,
+174:         child: const Icon(Icons.add, color: Colors.white),
+175:       ),
+176:     );
+177:   }
+178: }
+179: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-04T10:11:36Z
+Completed At: 2026-07-04T10:11:36Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/backend/parse/jobs_parse.dart`
+Total Lines: 78
+Total Bytes: 2215
+Showing lines 1 to 78
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'dart:convert';
+2: 
+3: import 'package:flutter_app/app/backend/api/api.dart';
+4: import 'package:flutter_app/app/core/cache/api_cache_service.dart';
+5: import 'package:flutter_app/app/core/network/api_endpoints.dart';
+6: import 'package:flutter_app/app/helper/shared_pref.dart';
+7: import 'package:get/get.dart';
+8: 
+9: class JobsParser {
+10:   final SharedPreferencesManager sharedPreferencesManager;
+11:   final ApiService apiService;
+12:   final ApiCacheService _cache = ApiCacheService();
+13: 
+14:   static const String _jobsListKey = 'jobs_list';
+15: 
+16:   JobsParser({required this.apiService, required this.sharedPreferencesManager});
+17: 
+18:   /// Alternative endpoints for WP Job Manager (varies by installation)
+19:   static const _endpoints = [
+20:     'wp-json/wp/v2/job-listings',
+21:     'wp-json/wp/v2/job-listing',
+22:     'wp-json/wp/v2/job_listing',
+23:   ];
+24: 
+25:   Future<Response> getJobs({
+26:     int page = 1,
+27:     int perPage = 10,
+28:     bool forceRefresh = false,
+29:   }) async {
+30:     if (!forceRefresh && page == 1) {
+31:       final cached = await _cache.get(_jobsListKey);
+32:       if (cached != null) {
+33:         final decoded = _cache.decodeCached(cached);
+34:         if (decoded != null) return Response(body: decoded, statusCode: 200);
+35:       }
+36:     }
+37: 
+38:     final params = {
+39:       'page': '$page',
+40:       'per_page': '$perPage',
+41:       'orderby': 'date',
+42:       'order': 'desc',
+43:     };
+44: 
+45:     // Try primary endpoint first, then fallbacks
+46:     Response? response;
+47:     for (final endpoint in _endpoints) {
+48:       response = await apiService.getPublic(endpoint, params);
+49:       if (response.statusCode == 200) break;
+50:       if (response.statusCode != 404) break; // Only retry on 404
+51:     }
+52: 
+53:     response ??= const Response(statusCode: 404, statusText: 'Not found');
+54: 
+55:     if (response.statusCode == 200 && page == 1) {
+56:       await _cache.set(_jobsListKey, jsonEncode(response.body));
+57:     }
+58: 
+59:     return response;
+60:   }
+61: 
+62:   Future<void> clearCache() async {
+63:     await _cache.clear(_jobsListKey);
+64:   }
+65: 
+66:   Future<Response> createJob(Map<String, dynamic> data) async {
+67:     return await apiService.postPrivate(
+68:       _endpoints.first,
+69:       data,
+70:       sharedPreferencesManager.getString('token') ?? "",
+71:     );
+72:   }
+73: 
+74:   String getToken() {
+75:     return sharedPreferencesManager.getString('token') ?? "";
+76:   }
+77: }
+78: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-04T10:12:26Z
+Completed At: 2026-07-04T10:12:26Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/backend/binding/jobs_binding.dart`
+Total Lines: 10
+Total Bytes: 231
+Showing lines 1 to 10
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:get/get.dart';
+2: import '../../controller/jobs_controller.dart';
+3: 
+4: class JobsBinding extends Bindings {
+5:   @override
+6:   void dependencies() {
+7:     Get.lazyPut(() => JobsController(parser: Get.find()), fenix: true);
+8:   }
+9: }
+10: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-04T10:55:19Z
+Completed At: 2026-07-04T10:55:19Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/controller/jobs_controller.dart`
+Total Lines: 132
+Total Bytes: 3553
+Showing lines 1 to 132
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:flutter/material.dart';
+2: import 'package:get/get.dart';
+3: import '../backend/models/job_model.dart';
+4: import '../backend/parse/jobs_parse.dart';
+5: 
+6: class JobsController extends GetxController implements GetxService {
+7:   final JobsParser parser;
+8: 
+9:   JobsController({required this.parser});
+10: 
+11:   List<JobModel> _jobs = [];
+12:   List<JobModel> get jobsList => _jobs;
+13: 
+14:   bool isLoading = true;
+15:   bool hasError = false;
+16:   String errorMessage = '';
+17:   int _page = 1;
+18:   bool hasMore = true;
+19:   bool isLoadingMore = false;
+20:   bool apiAvailable = true;
+21: 
+22:   @override
+23:   void onInit() {
+24:     super.onInit();
+25:     loadJobs();
+26:   }
+27: 
+28:   Future<void> loadJobs({bool forceRefresh = false}) async {
+29:     isLoading = true;
+30:     hasError = false;
+31:     apiAvailable = true;
+32:     _page = 1;
+33:     update();
+34: 
+35:     try {
+36:       final response = await parser.getJobs(forceRefresh: forceRefresh)
+37:           .timeout(const Duration(seconds: 30));
+38:       debugPrint('loadJobs: statusCode=${response.statusCode}, bodyType=${response.body.runtimeType}');
+39:       if (response.statusCode == 200) {
+40:         _jobs = [];
+41:         final List? jobsList = _extractList(response.body);
+42:         if (jobsList != null) {
+43:           for (var data in jobsList) {
+44:             if (data is Map<String, dynamic>) {
+45:               _jobs.add(JobModel.fromJson(data));
+46:             }
+47:           }
+48:         }
+49:    
+<truncated 614 bytes>
+ {
+69:     if (body is List) return body;
+70:     if (body is Map) {
+71:       // Handle wrapped responses: { "items": [...] }, { "data": [...] }, { "jobs": [...] }
+72:       for (final key in ['items', 'data', 'jobs', 'job_listings', 'results']) {
+73:         if (body[key] is List) return body[key];
+74:       }
+75:     }
+76:     return null;
+77:   }
+78: 
+79:   Future<void> loadMore() async {
+80:     if (isLoadingMore || !hasMore) return;
+81:     isLoadingMore = true;
+82:     update();
+83: 
+84:     try {
+85:       _page++;
+86:       final response = await parser.getJobs(page: _page);
+87:       if (response.statusCode == 200) {
+88:         final List? jobsList = _extractList(response.body);
+89:         if (jobsList != null) {
+90:           for (var data in jobsList) {
+91:             if (data is Map<String, dynamic>) {
+92:               _jobs.add(JobModel.fromJson(data));
+93:             }
+94:           }
+95:           hasMore = jobsList.length >= 10;
+96:         } else {
+97:           hasMore = false;
+98:         }
+99:       } else {
+100:         hasMore = false;
+101:       }
+102:     } catch (e) {
+103:       hasMore = false;
+104:       debugPrint('loadMore jobs error: $e');
+105:     }
+106: 
+107:     isLoadingMore = false;
+108:     update();
+109:   }
+110: 
+111:   Future<void> refresh() async {
+112:     await parser.clearCache();
+113:     await loadJobs(forceRefresh: true);
+114:   }
+115: 
+116:   Future<bool> createJob(Map<String, dynamic> data) async {
+117:     try {
+118:       final response = await parser.createJob(data);
+119:       if (response.statusCode == 200 || response.statusCode == 201) {
+120:         await refresh();
+121:         return true;
+122:       }
+123:       errorMessage = response.statusText ?? 'Failed to create job';
+124:       return false;
+125:     } catch (e) {
+126:       debugPrint('createJob error: $e');
+127:       errorMessage = 'Error creating job';
+128:       return false;
+129:     }
+130:   }
+131: }
+132: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-04T10:55:19Z
+Completed At: 2026-07-04T10:55:20Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/backend/parse/jobs_parse.dart`
+Total Lines: 91
+Total Bytes: 2709
+Showing lines 1 to 91
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'dart:convert';
+2: 
+3: import 'package:flutter_app/app/backend/api/api.dart';
+4: import 'package:flutter_app/app/core/cache/api_cache_service.dart';
+5: import 'package:flutter_app/app/core/network/api_endpoints.dart';
+6: import 'package:flutter_app/app/helper/shared_pref.dart';
+7: import 'package:get/get.dart';
+8: 
+9: class JobsParser {
+10:   final SharedPreferencesManager sharedPreferencesManager;
+11:   final ApiService apiService;
+12:   final ApiCacheService _cache = ApiCacheService();
+13: 
+14:   static const String _jobsListKey = 'jobs_list';
+15: 
+16:   JobsParser({required this.apiService, required this.sharedPreferencesManager});
+17: 
+18:   /// Alternative endpoints for WP Job Manager (varies by installation)
+19:   static const _endpoints = [
+20:     'wp-json/wp/v2/job-listings',
+21:     'wp-json/wp/v2/job-listing',
+22:     'wp-json/wp/v2/job_listing',
+23:   ];
+24: 
+25:   Future<Response> getJobs({
+26:     int page = 1,
+27:     int perPage = 10,
+28:     bool forceRefresh = false,
+29:   }) async {
+30:     if (!forceRefresh && page == 1) {
+31:       final cached = await _cache.get(_jobsListKey);
+32:       if (cached != null) {
+33:         final decoded = _cache.decodeCached(cached);
+34:         if (decoded != null) return Response(body: decoded, statusCode: 200);
+35:       }
+36:     }
+37: 
+38:     final params = {
+39:       'page': '$page',
+40:       'per_page': '$perPage',
+41:       'orderby': 'date',
+42:       'order': 'desc',
+43:     };
+44: 
+45:     final workingEndpointKey = 'jobs_working_endpoint';
+46:     final savedEndpoint = sharedPreferencesManager.getString(workingEndpointKey);
+47:     
+48:     // Create ordered list putting saved endpoint first
+49:     final endpointsToTry = savedEndpoint != null
+50:         ? [savedEndpoint, ..._endpoints.where((e) => e != savedEndpoint)]
+51:         : _endpoints;
+52: 
+53:     // Try primary endpoint first, then fallbacks
+54:     Response? response;
+55:     for (final endpoint in endpointsToTry) {
+56:       response = await apiService.getPublic(endpoint, params);
+57:       if (response.statusCode == 200) {
+58:         if (savedEndpoint != endpoint) {
+59:           sharedPreferencesManager.putString(workingEndpointKey, endpoint);
+60:         }
+61:         break;
+62:       }
+63:       if (response.statusCode != 404) break; // Only retry on 404
+64:     }
+65: 
+66:     response ??= const Response(statusCode: 404, statusText: 'Not found');
+67: 
+68:     if (response.statusCode == 200 && page == 1) {
+69:       await _cache.set(_jobsListKey, jsonEncode(response.body));
+70:     }
+71: 
+72:     return response;
+73:   }
+74: 
+75:   Future<void> clearCache() async {
+76:     await _cache.clear(_jobsListKey);
+77:   }
+78: 
+79:   Future<Response> createJob(Map<String, dynamic> data) async {
+80:     return await apiService.postPrivate(
+81:       _endpoints.first,
+82:       data,
+83:       sharedPreferencesManager.getString('token') ?? "",
+84:     );
+85:   }
+86: 
+87:   String getToken() {
+88:     return sharedPreferencesManager.getString('token') ?? "";
+89:   }
+90: }
+91: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-05T12:38:26Z
+Completed At: 2026-07-05T12:38:26Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/view/add_job.dart`
+Total Lines: 178
+Total Bytes: 5988
+Showing lines 1 to 178
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:flutter/material.dart';
+2: import 'package:flutter_app/app/util/theme.dart';
+3: import 'package:get/get.dart';
+4: import '../controller/jobs_controller.dart';
+5: import 'package:flutter_app/app/util/toast.dart';
+6: 
+7: class AddJobScreen extends StatefulWidget {
+8:   const AddJobScreen({Key? key}) : super(key: key);
+9: 
+10:   @override
+11:   State<AddJobScreen> createState() => _AddJobScreenState();
+12: }
+13: 
+14: class _AddJobScreenState extends State<AddJobScreen> {
+15:   final _formKey = GlobalKey<FormState>();
+16:   final _titleController = TextEditingController();
+17:   final _companyController = TextEditingController();
+18:   final _locationController = TextEditingController();
+19:   final _contentController = TextEditingController();
+20:   bool _isSubmitting = false;
+21: 
+22:   @override
+23:   void dispose() {
+24:     _titleController.dispose();
+25:     _companyController.dispose();
+26:     _locationController.dispose();
+27:     _contentController.dispose();
+28:     super.dispose();
+29:   }
+30: 
+31:   void _submit() async {
+32:     if (_formKey.currentState!.validate()) {
+33:       setState(() => _isSubmitting = true);
+34: 
+35:       final data = {
+36:         'title': _titleController.text.trim(),
+37:         'content': _contentController.text.trim(),
+38:         'meta': {
+39:           '_company_name': _companyController.text.trim(),
+40:           '_job_location': _locationController.text.trim(),
+41:         },
+42:         'status': 'publish', // Or 'pending' if you want admin approval f
+<truncated 3265 bytes>
+                  'Post Job',
+123:                           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+124:                         ),
+125:                 ),
+126:               ),
+127:             ],
+128:           ),
+129:         ),
+130:       ),
+131:     );
+132:   }
+133: 
+134:   Widget _buildTextField({
+135:     required TextEditingController controller,
+136:     required String label,
+137:     required String hint,
+138:     required MedsKaiThemeColors colors,
+139:     int maxLines = 1,
+140:     String? Function(String?)? validator,
+141:   }) {
+142:     return Column(
+143:       crossAxisAlignment: CrossAxisAlignment.start,
+144:       children: [
+145:         Text(
+146:           label,
+147:           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: colors.textPrimary),
+148:         ),
+149:         const SizedBox(height: 8),
+150:         TextFormField(
+151:           controller: controller,
+152:           maxLines: maxLines,
+153:           validator: validator,
+154:           style: TextStyle(color: colors.textPrimary),
+155:           decoration: InputDecoration(
+156:             hintText: hint,
+157:             hintStyle: TextStyle(color: colors.textSecondary),
+158:             filled: true,
+159:             fillColor: colors.cardBg,
+160:             border: OutlineInputBorder(
+161:               borderRadius: BorderRadius.circular(12),
+162:               borderSide: BorderSide.none,
+163:             ),
+164:             enabledBorder: OutlineInputBorder(
+165:               borderRadius: BorderRadius.circular(12),
+166:               borderSide: BorderSide.none,
+167:             ),
+168:             focusedBorder: OutlineInputBorder(
+169:               borderRadius: BorderRadius.circular(12),
+170:               borderSide: BorderSide(color: MedsKaiColors.primary, width: 1),
+171:             ),
+172:           ),
+173:         ),
+174:       ],
+175:     );
+176:   }
+177: }
+178: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-05T13:58:02Z
+Completed At: 2026-07-05T13:58:03Z
+File Path: `file:///C:/Users/Mahmoud/.gemini/antigravity-ide/brain/69adb771-f226-4064-b737-49e65d3fd652/.system_generated/logs/transcript.jsonl`
+Total Lines: 206
+Total Bytes: 381782
+Showing lines 1 to 206
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: {"step_index":0,"source":"USER_EXPLICIT","type":"USER_INPUT","status":"DONE","created_at":"2026-07-04T10:11:06Z","content":"<USER_REQUEST>\nبتجيب كده كده وتقعد تحمل لحد متهنج بس بفتح بعد كده بشتشغل شوف حل في موضوع التحميل ده \n</USER_REQUEST>\n<ADDITIONAL_METADATA>\nThe current local time is: 2026-07-04T13:11:06+03:00.\n\nThe user's current state is as follows:\nOther open documents:\n- c:\\Users\\Mahmoud\\Downloads\\learnpress-mobile-flutter-n (1)\\learnpress-mobile-flutter-n\\lib\\app\\controller\\jobs_controller.dart (LANGUAGE_DART)\n- c:\\Users\\Mahmoud\\Downloads\\learnpress-mobile-flutter-n (1)\\learnpress-mobile-flutter-n\\lib\\app\\backend\\parse\\jobs_parse.dart (LANGUAGE_DART)\n- c:\\Users\\Mahmoud\\Downloads\\learnpress-mobile-flutter-n (1)\\learnpress-mobile-flutter-n\\lib\\app\\view\\job_detail.dart (LANGUAGE_DART)\n- c:\\Users\\Mahmoud\\Downloads\\learnpress-mobile-flutter-n (1)\\learnpress-mobile-flutter-n\\lib\\app\\backend\\models\\job_model.dart (LANGUAGE_DART)\n- c:\\Users\\Mahmoud\\Downloads\\learnpress-mobile-flutter-n (1)\\learnpress-mobile-flutter-n\\lib\\app\\helper\\router.dart (LANGUAGE_DART)\n</ADDITIONAL_METADATA>\n<USER_SETTINGS_CHANGE>\nThe user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.\n</USER_SETTINGS_CHANGE>"}
+2: {"step
+<truncated 45284 bytes>
+efs.getString(_cacheKey(endpoint));\n42:     } catch (e) {\n43:       debugPrint('ApiCacheService.getIgnoringTtl error: $e');\n44:       return null;\n45:     }\n4\n<truncated 523 bytes>\nefs;\n62:     if (p == null) return true;\n63:     final ts = p.getInt(_tsKey(endpoint));\n64:     if (ts == null) return true;\n65:     return DateTime.now().millisecondsSinceEpoch - ts > ttl;\n66:   }\n67: \n68:   bool isFresh(String endpoint, {int ttl = defaultTtl}) {\n69:     return !isExpired(endpoint, ttl: ttl);\n70:   }\n71: \n72:   Future<void> clear(String endpoint) async {\n73:     try {\n74:       final prefs = await _sharedPrefs;\n75:       await prefs.remove(_cacheKey(endpoint));\n76:       await prefs.remove(_tsKey(endpoint));\n77:     } catch (e) {\n78:       debugPrint('ApiCacheService.clear error: $e');\n79:     }\n80:   }\n81: \n82:   Future<void> clearAll() async {\n83:     try {\n84:       final prefs = await _sharedPrefs;\n85:       final keys =\n86:           prefs.getKeys().where((k) => k.startsWith(_prefix) || k.startsWith(_tsPrefix));\n87:       for (final key in keys) {\n88:         await prefs.remove(key);\n89:       }\n90:     } catch (e) {\n91:       debugPrint('ApiCacheService.clearAll error: $e');\n92:     }\n93:   }\n94: \n95:   /// Invalidate all cache entries whose keys contain [pattern].\n96:   Future<void> invalidatePattern(String pattern) async {\n97:     try {\n98:       final prefs = await _sharedPrefs;\n99:       final keys = prefs.getKeys().where((k) =>\n100:           (k.startsWith(_prefix) || k.startsWith(_tsPrefix)) &&\n101:           k.contains(pattern));\n102:       for (final key in keys) {\n103:         await prefs.remove(key);\n104:       }\n105:     } catch (e) {\n106:       debugPrint('ApiCacheService.invalidatePattern error: $e');\n107:     }\n108:   }\n109: \n110:   /// Decode cached JSON safely. Returns null if corrupt
+<truncated 334082 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.
+
+Created At: 2026-07-05T14:00:46Z
+Completed At: 2026-07-05T14:00:46Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/original_add_job.txt`
+Total Lines: 109
+Total Bytes: 4228
+Showing lines 1 to 109
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: Created At: 2026-07-05T12:38:26Z
+2: Completed At: 2026-07-05T12:38:26Z
+3: File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/view/add_job.dart`
+4: Total Lines: 178
+5: Total Bytes: 5988
+6: Showing lines 1 to 178
+7: The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+8: 1: import 'package:flutter/material.dart';
+9: 2: import 'package:flutter_app/app/util/theme.dart';
+10: 3: import 'package:get/get.dart';
+11: 4: import '../controller/jobs_controller.dart';
+12: 5: import 'package:flutter_app/app/util/toast.dart';
+13: 6: 
+14: 7: class AddJobScreen extends StatefulWidget {
+15: 8:   const AddJobScreen({Key? key}) : super(key: key);
+16: 9: 
+17: 10:   @override
+18: 11:   State<AddJobScreen> createState() => _AddJobScreenState();
+19: 12: }
+20: 13: 
+21: 14: class _AddJobScreenState extends State<AddJobScreen> {
+22: 15:   final _formKey = GlobalKey<FormState>();
+23: 16:   final _titleController = TextEditingController();
+24: 17:   final _companyController = TextEditingController();
+25: 18:   final _locationController = TextEditingController();
+26: 19:   final _contentController = TextEditingController();
+27: 20:   bool _isSubmitting = false;
+28: 21: 
+29: 22:   @override
+30: 23:   void dispose() {
+31: 24:     _titleController.dispose();
+32: 25:
+<truncated 1155 bytes>
+Widget _buildTextField({
+64: 135:     required TextEditingController controller,
+65: 136:     required String label,
+66: 137:     required String hint,
+67: 138:     required MedsKaiThemeColors colors,
+68: 139:     int maxLines = 1,
+69: 140:     String? Function(String?)? validator,
+70: 141:   }) {
+71: 142:     return Column(
+72: 143:       crossAxisAlignment: CrossAxisAlignment.start,
+73: 144:       children: [
+74: 145:         Text(
+75: 146:           label,
+76: 147:           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: colors.textPrimary),
+77: 148:         ),
+78: 149:         const SizedBox(height: 8),
+79: 150:         TextFormField(
+80: 151:           controller: controller,
+81: 152:           maxLines: maxLines,
+82: 153:           validator: validator,
+83: 154:           style: TextStyle(color: colors.textPrimary),
+84: 155:           decoration: InputDecoration(
+85: 156:             hintText: hint,
+86: 157:             hintStyle: TextStyle(color: colors.textSecondary),
+87: 158:             filled: true,
+88: 159:             fillColor: colors.cardBg,
+89: 160:             border: OutlineInputBorder(
+90: 161:               borderRadius: BorderRadius.circular(12),
+91: 162:               borderSide: BorderSide.none,
+92: 163:             ),
+93: 164:             enabledBorder: OutlineInputBorder(
+94: 165:               borderRadius: BorderRadius.circular(12),
+95: 166:               borderSide: BorderSide.none,
+96: 167:             ),
+97: 168:             focusedBorder: OutlineInputBorder(
+98: 169:               borderRadius: BorderRadius.circular(12),
+99: 170:               borderSide: BorderSide(color: MedsKaiColors.primary, width: 1),
+100: 171:             ),
+101: 172:           ),
+102: 173:         ),
+103: 174:       ],
+104: 175:     );
+105: 176:   }
+106: 177: }
+107: 178: 
+108: The above content shows the entire, complete file contents of the requested file.
+109: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-05T14:02:55Z
+Completed At: 2026-07-05T14:02:56Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/controller/jobs_controller.dart`
+Total Lines: 9
+Total Bytes: 270
+Showing lines 1 to 9
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:get/get.dart';
+2: import '../backend/parse/jobs_parse.dart';
+3: 
+4: /// Minimal controller kept for binding compatibility.
+5: class JobsController extends GetxController implements GetxService {
+6:   final JobsParser parser;
+7:   JobsController({required this.parser});
+8: }
+9: 
+The above content shows the entire, complete file contents of the requested file.
+
+
+Created At: 2026-07-05T14:03:00Z
+Completed At: 2026-07-05T14:03:00Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/backend/parse/jobs_parse.dart`
+Total Lines: 11
+Total Bytes: 359
+Showing lines 1 to 11
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:flutter_app/app/backend/api/api.dart';
+2: import 'package:flutter_app/app/helper/shared_pref.dart';
+3: 
+4: /// Minimal parser kept for binding compatibility.
+5: class JobsParser {
+6:   final SharedPreferencesManager sharedPreferencesManager;
+7:   final ApiService apiService;
+8: 
+9:   JobsParser({required this.apiService, required this.sharedPreferencesManager});
+10: }
+11: 
+The above content shows the entire, complete file contents of the requested file.
+
+

@@ -1,0 +1,4 @@
+storePassword=medskai123
+keyPassword=medskai123
+keyAlias=medskai
+storeFile=medskai.jks

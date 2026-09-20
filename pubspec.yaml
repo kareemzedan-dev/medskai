@@ -1,0 +1,168 @@
+name: flutter_app
+description: A new Flutter project.
+publish_to: "none"
+
+version: 1.0.0+28
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core
+  intl: ^0.20.2
+  cupertino_icons: ^1.0.8
+
+  # State Management
+  get: ^4.7.2
+  get_it: ^7.7.0
+  get_it_mixin: ^4.2.2
+  mobx: ^2.4.0
+  flutter_mobx: ^2.2.1+1
+  provider: ^6.1.2
+
+  # Network & API
+  http: ^1.2.2
+  jwt_decode: ^0.3.1
+
+  # UI Components
+  rflutter_alert: ^2.0.7
+  carousel_slider: ^5.0.0
+  google_nav_bar: ^5.0.7
+  percent_indicator: ^4.2.3
+  flutter_vector_icons: ^2.0.0
+  indexed: ^0.0.8
+  flutter_rating_bar: ^4.0.1
+  skeletonizer: ^2.1.2
+  loader_overlay: ^4.0.3
+
+  # Utilities
+  rate_limiter: ^1.0.0
+
+  # Forms & Input
+  country_code_picker: ^3.0.0
+  flutter_multi_formatter: ^2.13.0
+
+  # Media & Files
+  image_picker: ^1.1.2
+  image_cropper: ^8.0.2
+  file_picker: ^8.1.6
+
+  # WebView & HTML
+  webview_flutter: ^4.10.0
+  flutter_widget_from_html: ^0.15.2
+
+  # PDF
+  syncfusion_flutter_pdfviewer: ^28.1.41
+
+  # Location
+  geocoding: ^3.0.0
+
+  # Navigation & Routing
+  url_launcher: ^6.3.1
+
+  # Image Caching
+  cached_network_image: ^3.4.1
+
+  # Storage
+  shared_preferences: ^2.3.3
+  path_provider: ^2.1.4
+
+  # Date & Time
+  jiffy: ^6.3.1
+
+  # Connectivity
+  connectivity_plus: ^6.1.1
+
+  # Firebase
+  firebase_core: ^3.8.1
+  firebase_messaging: ^15.1.6
+  flutter_local_notifications: ^18.0.1
+
+  # In-App Purchase
+  in_app_purchase: ^3.2.0
+
+  # Localization
+  easy_localization: ^3.0.7
+
+  # Audio
+  just_audio: ^0.9.42
+
+  # Social Login (using authentication_buttons as replacement)
+  sign_in_button: ^3.2.0
+  flutter_secure_storage: ^10.0.0
+  screen_protector: ^1.5.2
+  google_sign_in: ^7.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  mobx_codegen: ^2.6.1
+  build_runner: ^2.4.14
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/translations/
+    - assets/images/
+    - assets/images/categories/
+    - assets/images/courses/
+    - assets/images/team/
+    - assets/images/logos/
+
+  fonts:
+    # Manrope - MedsKai Brand Font
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Manrope/Manrope-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Manrope/Manrope-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Manrope/Manrope-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Manrope/Manrope-ExtraBold.ttf
+          weight: 800
+
+    # Legacy fonts (for backwards compatibility)
+    - family: SnigletBold
+      fonts:
+        - asset: assets/fonts/Sniglet-ExtraBold.ttf
+
+    - family: Sniglet
+      fonts:
+        - asset: assets/fonts/Sniglet-Regular.ttf
+
+    - family: SnigletExtraBold
+      fonts:
+        - asset: assets/fonts/Sniglet ExtraBold 800.ttf
+
+    - family: bold
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Bold.ttf
+
+    - family: semibold
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-SemiBold.ttf
+
+    - family: medium
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Medium.ttf
+
+    - family: regular
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Regular.ttf
+    - family: poppins-extraLight
+      fonts:
+        - asset: assets/fonts/Poppins-ExtraLight.ttf
+    - family: poppins
+      fonts:
+        - asset: assets/fonts/Poppins.ttf
+    - family: thin
+      fonts:
+        - asset: assets/fonts/Poppins-Thin.ttf

@@ -1,0 +1,274 @@
+'"C:\src\flutter\bin\internal\shared.bat"' is not recognized as an internal or external command,
+operable program or batch file.
+[ +117 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[   +1 ms] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[ +108 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +49 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[   +2 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterEngineStamp' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +83 ms] Skipping pub get: version match.
+[ +149 ms] Found plugin webview_flutter at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\webview_flutter-4.13.1\
+[   +6 ms] Found plugin webview_flutter_wkwebview at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\webview_flutter_wkwebview-3.23.5\
+[   +5 ms] Found plugin webview_flutter_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\webview_flutter_android-4.10.11\
+[   +2 ms] Found plugin url_launcher at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.2\
+[   +1 ms] Found plugin url_launcher_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.2\
+[   +3 ms] Found plugin url_launcher_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+[   +3 ms] Found plugin url_launcher_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.0\
+[   +2 ms] Found plugin url_launcher_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.0\
+[   +2 ms] Found plugin url_launcher_ios at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.1\
+[   +1 ms] Found plugin url_launcher_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.8\
+[   +2 ms] Found plugin syncfusion_flutter_pdfviewer at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_flutter_pdfviewer-28.2.12\
+[   +2 ms] Found plugin syncfusion_pdfviewer_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_pdfviewer_windows-28.2.12\
+[   +1 ms] Found plugin syncfusion_pdfviewer_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_pdfviewer_web-28.2.12\
+[   +3 ms] Found plugin syncfusion_pdfviewer_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_pdfviewer_macos-28.2.12\
+[  +17 ms] Found plugin device_info_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\device_info_plus-11.3.0\
+[  +19 ms] Found plugin shared_preferences at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.4\
+[   +3 ms] Found plugin shared_preferences_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+[   +4 ms] Found plugin path_provider_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+[   +6 ms] Found plugin shared_preferences_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.2\
+[   +2 ms] Found plugin shared_preferences_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+[   +2 ms] Found plugin path_provider_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+[   +3 ms] Found plugin shared_preferences_foundation at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.2\
+[   +2 ms] Found plugin shared_preferences_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.18\
+[   +7 ms] Found plugin path_provider at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.4\
+[   +1 ms] Found plugin path_provider_foundation at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.0\
+[   +1 ms] Found plugin path_provider_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.10\
+[   +5 ms] Found plugin just_audio at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\just_audio-0.9.46\
+[   +3 ms] Found plugin just_audio_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\just_audio_web-0.4.15\
+[   +3 ms] Found plugin audio_session at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\audio_session-0.1.25\
+[   +5 ms] Found plugin in_app_purchase at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\in_app_purchase-3.2.0\
+[   +1 ms] Found plugin in_app_purchase_storekit at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\in_app_purchase_storekit-0.3.17+3\
+[   +2 ms] Found plugin in_app_purchase_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\in_app_purchase_android-0.3.6+5\
+[   +1 ms] Found plugin image_picker at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker-1.2.1\
+[   +1 ms] Found plugin image_picker_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_windows-0.2.2\
+[   +3 ms] Found plugin file_selector_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_selector_windows-0.9.3+2\
+[   +2 ms] Found plugin image_picker_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_macos-0.2.2+1\
+[   +1 ms] Found plugin file_selector_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_selector_macos-0.9.4\
+[   +1 ms] Found plugin image_picker_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_linux-0.2.2\
+[   +1 ms] Found plugin file_selector_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_selector_linux-0.9.2+1\
+[   +1 ms] Found plugin image_picker_ios at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_ios-0.8.13+3\
+[   +1 ms] Found plugin image_picker_for_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_for_web-3.1.1\
+[   +1 ms] Found plugin image_picker_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.13+10\
+[   +1 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.21\
+[   +1 ms] Found plugin image_cropper at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_cropper-8.1.0\
+[   +2 ms] Found plugin image_cropper_for_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_cropper_for_web-6.1.0\
+[   +6 ms] Found plugin geocoding at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\geocoding-3.0.0\
+[   +2 ms] Found plugin geocoding_ios at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\geocoding_ios-3.1.0\
+[   +1 ms] Found plugin geocoding_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\geocoding_android-3.3.1\
+[  +19 ms] Found plugin video_player at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player-2.9.1\
+[   +2 ms] Found plugin video_player_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player_web-2.3.2\
+[   +2 ms] Found plugin video_player_avfoundation at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player_avfoundation-2.6.1\
+[   +1 ms] Found plugin video_player_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player_android-2.6.0\
+[   +1 ms] Found plugin wakelock_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\wakelock_plus-1.2.8\
+[   +2 ms] Found plugin package_info_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\package_info_plus-8.0.2\
+[   +4 ms] Found plugin sqflite at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\sqflite-2.3.3+1\
+[  +10 ms] Found plugin flutter_secure_storage at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage-10.0.0\
+[   +1 ms] Found plugin flutter_secure_storage_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_windows-4.1.0\
+[   +1 ms] Found plugin flutter_secure_storage_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_web-2.1.0\
+[   +1 ms] Found plugin flutter_secure_storage_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_linux-3.0.0\
+[        ] Found plugin flutter_secure_storage_darwin at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_darwin-0.2.0\
+[   +5 ms] Found plugin flutter_local_notifications at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\
+[   +3 ms] Found plugin flutter_local_notifications_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications_linux-5.0.0\
+[   +1 ms] Found plugin firebase_messaging at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-15.2.10\
+[   +1 ms] Found plugin firebase_messaging_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging_web-3.10.10\
+[   +2 ms] Found plugin firebase_core at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.15.2\
+[   +1 ms] Found plugin firebase_core_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core_web-2.24.1\
+[   +2 ms] Found plugin file_picker at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-8.3.2\
+[   +6 ms] Found plugin connectivity_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\connectivity_plus-6.1.5\
+[  +92 ms] Found plugin webview_flutter at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\webview_flutter-4.13.1\
+[   +1 ms] Found plugin webview_flutter_wkwebview at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\webview_flutter_wkwebview-3.23.5\
+[   +3 ms] Found plugin webview_flutter_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\webview_flutter_android-4.10.11\
+[   +1 ms] Found plugin url_launcher at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.2\
+[   +1 ms] Found plugin url_launcher_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.2\
+[   +2 ms] Found plugin url_launcher_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+[   +2 ms] Found plugin url_launcher_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.0\
+[   +1 ms] Found plugin url_launcher_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.0\
+[        ] Found plugin url_launcher_ios at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.1\
+[        ] Found plugin url_launcher_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.8\
+[   +1 ms] Found plugin syncfusion_flutter_pdfviewer at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_flutter_pdfviewer-28.2.12\
+[   +1 ms] Found plugin syncfusion_pdfviewer_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_pdfviewer_windows-28.2.12\
+[        ] Found plugin syncfusion_pdfviewer_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_pdfviewer_web-28.2.12\
+[   +1 ms] Found plugin syncfusion_pdfviewer_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\syncfusion_pdfviewer_macos-28.2.12\
+[   +6 ms] Found plugin device_info_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\device_info_plus-11.3.0\
+[   +6 ms] Found plugin shared_preferences at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.4\
+[   +1 ms] Found plugin shared_preferences_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+[   +1 ms] Found plugin path_provider_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+[   +3 ms] Found plugin shared_preferences_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.2\
+[        ] Found plugin shared_preferences_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+[        ] Found plugin path_provider_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+[   +1 ms] Found plugin shared_preferences_foundation at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.2\
+[        ] Found plugin shared_preferences_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.18\
+[   +3 ms] Found plugin path_provider at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.4\
+[        ] Found plugin path_provider_foundation at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.0\
+[        ] Found plugin path_provider_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.10\
+[   +2 ms] Found plugin just_audio at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\just_audio-0.9.46\
+[   +1 ms] Found plugin just_audio_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\just_audio_web-0.4.15\
+[   +2 ms] Found plugin audio_session at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\audio_session-0.1.25\
+[   +3 ms] Found plugin in_app_purchase at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\in_app_purchase-3.2.0\
+[        ] Found plugin in_app_purchase_storekit at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\in_app_purchase_storekit-0.3.17+3\
+[   +1 ms] Found plugin in_app_purchase_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\in_app_purchase_android-0.3.6+5\
+[        ] Found plugin image_picker at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker-1.2.1\
+[        ] Found plugin image_picker_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_windows-0.2.2\
+[   +1 ms] Found plugin file_selector_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_selector_windows-0.9.3+2\
+[   +1 ms] Found plugin image_picker_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_macos-0.2.2+1\
+[        ] Found plugin file_selector_macos at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_selector_macos-0.9.4\
+[        ] Found plugin image_picker_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_linux-0.2.2\
+[        ] Found plugin file_selector_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_selector_linux-0.9.2+1\
+[   +1 ms] Found plugin image_picker_ios at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_ios-0.8.13+3\
+[   +1 ms] Found plugin image_picker_for_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_for_web-3.1.1\
+[   +1 ms] Found plugin image_picker_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_picker_android-0.8.13+10\
+[        ] Found plugin flutter_plugin_android_lifecycle at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.21\
+[        ] Found plugin image_cropper at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_cropper-8.1.0\
+[   +1 ms] Found plugin image_cropper_for_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\image_cropper_for_web-6.1.0\
+[   +3 ms] Found plugin geocoding at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\geocoding-3.0.0\
+[   +1 ms] Found plugin geocoding_ios at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\geocoding_ios-3.1.0\
+[   +1 ms] Found plugin geocoding_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\geocoding_android-3.3.1\
+[  +12 ms] Found plugin video_player at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player-2.9.1\
+[        ] Found plugin video_player_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player_web-2.3.2\
+[   +1 ms] Found plugin video_player_avfoundation at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player_avfoundation-2.6.1\
+[   +1 ms] Found plugin video_player_android at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\video_player_android-2.6.0\
+[   +1 ms] Found plugin wakelock_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\wakelock_plus-1.2.8\
+[   +2 ms] Found plugin package_info_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\package_info_plus-8.0.2\
+[   +5 ms] Found plugin sqflite at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\sqflite-2.3.3+1\
+[   +5 ms] Found plugin flutter_secure_storage at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage-10.0.0\
+[        ] Found plugin flutter_secure_storage_windows at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_windows-4.1.0\
+[   +1 ms] Found plugin flutter_secure_storage_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_web-2.1.0\
+[        ] Found plugin flutter_secure_storage_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_linux-3.0.0\
+[        ] Found plugin flutter_secure_storage_darwin at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_secure_storage_darwin-0.2.0\
+[   +5 ms] Found plugin flutter_local_notifications at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications-18.0.1\
+[   +1 ms] Found plugin flutter_local_notifications_linux at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_local_notifications_linux-5.0.0\
+[        ] Found plugin firebase_messaging at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging-15.2.10\
+[        ] Found plugin firebase_messaging_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_messaging_web-3.10.10\
+[   +1 ms] Found plugin firebase_core at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.15.2\
+[        ] Found plugin firebase_core_web at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core_web-2.24.1\
+[   +2 ms] Found plugin file_picker at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-8.3.2\
+[   +3 ms] Found plugin connectivity_plus at C:\Users\ONLine\AppData\Local\Pub\Cache\hosted\pub.dev\connectivity_plus-6.1.5\
+[  +12 ms] Generating D:\android tog\learnpress-mobile-flutter-n\android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java
+[  +12 ms] Skipping generating GeneratedPluginRegistrant.java because it is up-to-date.
+[   +2 ms] Skipping generating GeneratedPluginRegistrant.h because it is up-to-date.
+[   +1 ms] Skipping generating GeneratedPluginRegistrant.m because it is up-to-date.
+[  +32 ms] executing: C:\Program Files\Android\Android Studio\jbr\bin\java -version
+[ +126 ms] Exit code 0 from: C:\Program Files\Android\Android Studio\jbr\bin\java -version
+[        ] openjdk version "21.0.5" 2024-10-15
+           OpenJDK Runtime Environment (build 21.0.5+-13047016-b750.29)
+           OpenJDK 64-Bit Server VM (build 21.0.5+-13047016-b750.29, mixed mode)
+[  +11 ms] executing: C:\Program Files\Android\Android Studio\jbr\bin\java --version
+[ +129 ms] Exit code 0 from: C:\Program Files\Android\Android Studio\jbr\bin\java --version
+[        ] openjdk 21.0.5 2024-10-15
+           OpenJDK Runtime Environment (build 21.0.5+-13047016-b750.29)
+           OpenJDK 64-Bit Server VM (build 21.0.5+-13047016-b750.29, mixed mode)
+[   +1 ms] Version of Java is different than impacted version, no migration attempted.
+[  +32 ms] CMake project not found, skipping support Android 15 16k page size migration.
+[   +4 ms] Using gradle from D:\android tog\learnpress-mobile-flutter-n\android\gradlew.bat.
+[  +65 ms] LocalFile: 'D:\android tog\learnpress-mobile-flutter-n\android\build.gradle' doesn't provide an AGP version. Checking settings.
+[  +13 ms] LocalFile: 'D:\android tog\learnpress-mobile-flutter-n\android\settings.gradle' provides AGP version: 8.9.2
+[   +1 ms] Running Gradle task 'assembleRelease'...
+[   +1 ms] executing: [D:\android tog\learnpress-mobile-flutter-n\android/] D:\android tog\learnpress-mobile-flutter-n\android\gradlew.bat --full-stacktrace --info -Pverbose=true -Ptarget-platform=android-arm,android-arm64,android-x64 -Ptarget=lib\main.dart -Pbase-application-name=android.app.Application -Pdart-defines=RkxVVFRFUl9WRVJTSU9OPTMuMzUuNw==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049YWRjOTAxMDYyNQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049MDM1MzE2NTY1YQ==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My45LjI= -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=true assembleRelease
+[ +789 ms] Initialized native services in: D:\gradle-cache\native
+[        ] Initialized jansi services in: D:\gradle-cache\native
+[ +323 ms] Found daemon DaemonInfo{pid=1544, address=[b2b8c900-17af-4cb0-bf17-fc764d17ab96 port:64686, addresses:[/127.0.0.1]], state=Idle, lastBusy=1777595583713, context=DefaultDaemonContext[uid=b40b7e7e-db0d-4aad-a82d-f189d74a5e7e,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\gradle-cache\daemon,pid=1544,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+[        ] At least one daemon option is different.
+[   +1 ms] Wanted: DaemonRequestContext{jvmCriteria=C:\Program Files\Android\Android Studio\jbr (no JDK specified, using current Java home), daemonOpts=[-XX:+HeapDumpOnOutOfMemoryError, -Xmx4G, -Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+[   +1 ms] Actual: DefaultDaemonContext[uid=b40b7e7e-db0d-4aad-a82d-f189d74a5e7e,javaHome=C:\Program Files\Android\Android Studio\jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=D:\gradle-cache\daemon,pid=1544,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+[        ]   Looking for a different daemon...
+[   +1 ms] Found daemon DaemonInfo{pid=2856, address=[86311722-50c3-4bf9-9138-d7bff1de3ef0 port:53651, addresses:[/127.0.0.1]], state=Idle, lastBusy=1779492895299, context=DefaultDaemonContext[uid=26255003-ddab-44b8-8594-f244d6de9ecf,javaHome=C:\Program Files\Java\jdk-24,javaVersion=24,javaVendor=Oracle Corporation,daemonRegistryDir=D:\gradle-cache\daemon,pid=2856,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:+HeapDumpOnOutOfMemoryError,-Xmx4G,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+[        ] JVM is incompatible.
+[        ] Wanted: DaemonRequestContext{jvmCriteria=C:\Program Files\Android\Android Studio\jbr (no JDK specified, using current Java home), daemonOpts=[-XX:+HeapDumpOnOutOfMemoryError, -Xmx4G, -Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+[        ] Actual: DefaultDaemonContext[uid=26255003-ddab-44b8-8594-f244d6de9ecf,javaHome=C:\Program Files\Java\jdk-24,javaVersion=24,javaVendor=Oracle Corporation,daemonRegistryDir=D:\gradle-cache\daemon,pid=2856,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:+HeapDumpOnOutOfMemoryError,-Xmx4G,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+[        ]   Looking for a different daemon...
+[  +81 ms] The client will now receive all logging from the daemon (pid: 12252). The daemon log file: D:\gradle-cache\daemon\8.11.1\daemon-12252.out.log
+[        ] Starting 6th build in daemon [uptime: 8 mins 8.124 secs, performance: 99%, GC rate: 0.00/s, heap usage: 0% of 4 GiB]
+[        ] Using 8 worker leases.
+[        ] Now considering [D:\android tog\learnpress-mobile-flutter-n\android] as hierarchies to watch
+[        ] Watching the file system is configured to be enabled if available
+[        ] File system watching is active
+[        ] Starting Build
+[        ] Now considering [C:\src\flutter\packages\flutter_tools\gradle, D:\android tog\learnpress-mobile-flutter-n\android] as hierarchies to watch
+[        ] Watched directory hierarchies: []
+[  +68 ms] Running Gradle task 'assembleRelease'... (completed in ١٬٢٧٣ms)
+[   +1 ms] "flutter apk" took ٢٬٥٠٢ms.
+[  +55 ms] Gradle task assembleRelease failed with exit code 1
+[   +1 ms] 
+           #0      throwToolExit (package:flutter_tools/src/base/common.dart:34:3)
+           #1      AndroidGradleBuilder.buildGradleApp (package:flutter_tools/src/android/gradle.dart:600:7)
+           <asynchronous suspension>
+           #2      AndroidGradleBuilder.buildApk (package:flutter_tools/src/android/gradle.dart:239:5)
+           <asynchronous suspension>
+           #3      BuildApkCommand.runCommand (package:flutter_tools/src/commands/build_apk.dart:131:5)
+           <asynchronous suspension>
+           #4      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1581:27)
+           <asynchronous suspension>
+           #5      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #6      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+           <asynchronous suspension>
+           #7      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:503:9)
+           <asynchronous suspension>
+           #8      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #9      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:438:5)
+           <asynchronous suspension>
+           #10     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:98:11)
+           <asynchronous suspension>
+           #11     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+           <asynchronous suspension>
+           #12     main (package:flutter_tools/executable.dart:101:3)
+           <asynchronous suspension>
+
+
+[        ] Running 1 shutdown hook
+[        ] Shutdown hooks complete
+[        ] exiting with code 1

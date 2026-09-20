@@ -1,0 +1,108 @@
+Created At: 2026-07-05T12:38:26Z
+Completed At: 2026-07-05T12:38:26Z
+File Path: `file:///c:/Users/Mahmoud/Downloads/learnpress-mobile-flutter-n%20%281%29/learnpress-mobile-flutter-n/lib/app/view/add_job.dart`
+Total Lines: 178
+Total Bytes: 5988
+Showing lines 1 to 178
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: import 'package:flutter/material.dart';
+2: import 'package:flutter_app/app/util/theme.dart';
+3: import 'package:get/get.dart';
+4: import '../controller/jobs_controller.dart';
+5: import 'package:flutter_app/app/util/toast.dart';
+6: 
+7: class AddJobScreen extends StatefulWidget {
+8:   const AddJobScreen({Key? key}) : super(key: key);
+9: 
+10:   @override
+11:   State<AddJobScreen> createState() => _AddJobScreenState();
+12: }
+13: 
+14: class _AddJobScreenState extends State<AddJobScreen> {
+15:   final _formKey = GlobalKey<FormState>();
+16:   final _titleController = TextEditingController();
+17:   final _companyController = TextEditingController();
+18:   final _locationController = TextEditingController();
+19:   final _contentController = TextEditingController();
+20:   bool _isSubmitting = false;
+21: 
+22:   @override
+23:   void dispose() {
+24:     _titleController.dispose();
+25:     _companyController.dispose();
+26:     _locationController.dispose();
+27:     _contentController.dispose();
+28:     super.dispose();
+29:   }
+30: 
+31:   void _submit() async {
+32:     if (_formKey.currentState!.validate()) {
+33:       setState(() => _isSubmitting = true);
+34: 
+35:       final data = {
+36:         'title': _titleController.text.trim(),
+37:         'content': _contentController.text.trim(),
+38:         'meta': {
+39:           '_company_name': _companyController.text.trim(),
+40:           '_job_location': _locationController.text.trim(),
+41:         },
+42:         'status': 'publish', // Or 'pending' if you want admin approval f
+<truncated 3265 bytes>
+                  'Post Job',
+123:                           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+124:                         ),
+125:                 ),
+126:               ),
+127:             ],
+128:           ),
+129:         ),
+130:       ),
+131:     );
+132:   }
+133: 
+134:   Widget _buildTextField({
+135:     required TextEditingController controller,
+136:     required String label,
+137:     required String hint,
+138:     required MedsKaiThemeColors colors,
+139:     int maxLines = 1,
+140:     String? Function(String?)? validator,
+141:   }) {
+142:     return Column(
+143:       crossAxisAlignment: CrossAxisAlignment.start,
+144:       children: [
+145:         Text(
+146:           label,
+147:           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: colors.textPrimary),
+148:         ),
+149:         const SizedBox(height: 8),
+150:         TextFormField(
+151:           controller: controller,
+152:           maxLines: maxLines,
+153:           validator: validator,
+154:           style: TextStyle(color: colors.textPrimary),
+155:           decoration: InputDecoration(
+156:             hintText: hint,
+157:             hintStyle: TextStyle(color: colors.textSecondary),
+158:             filled: true,
+159:             fillColor: colors.cardBg,
+160:             border: OutlineInputBorder(
+161:               borderRadius: BorderRadius.circular(12),
+162:               borderSide: BorderSide.none,
+163:             ),
+164:             enabledBorder: OutlineInputBorder(
+165:               borderRadius: BorderRadius.circular(12),
+166:               borderSide: BorderSide.none,
+167:             ),
+168:             focusedBorder: OutlineInputBorder(
+169:               borderRadius: BorderRadius.circular(12),
+170:               borderSide: BorderSide(color: MedsKaiColors.primary, width: 1),
+171:             ),
+172:           ),
+173:         ),
+174:       ],
+175:     );
+176:   }
+177: }
+178: 
+The above content shows the entire, complete file contents of the requested file.
